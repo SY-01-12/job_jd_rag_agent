@@ -1,0 +1,5 @@
+AI Agent 应用开发实习生
+
+岗位要求：
+熟悉 Python、FastAPI、LangChain、RAG、Chroma、Dify、Coze。
+了解 Docker、Linux、Git、Swagger。

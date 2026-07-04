@@ -1,0 +1,25 @@
+AI Agent 应用开发实习生岗位 JD
+
+岗位职责：
+1. 参与大模型应用原型开发，支持知识库问答、岗位分析助手、文档问答系统等业务场景。
+2. 使用 Python、FastAPI 和 LangChain 构建 Agent/RAG 应用，完成工具调用、Prompt 编排和接口封装。
+3. 参与本地知识库建设，包括文档加载、文本切块、Embedding 向量化、Chroma/FAISS 向量库构建和 Retriever 检索。
+4. 根据业务需求设计工具函数，例如文件读取、关键词提取、计算工具和知识库检索工具。
+5. 配合团队使用 Dify 或 Coze 搭建低代码 Agent 原型，完成工作流、知识库、插件和 API 发布配置。
+6. 对 RAG 检索效果进行测试，记录 Top-K、chunk_size、chunk_overlap、相似度阈值和 Reranker 对回答质量的影响。
+
+岗位要求：
+1. 熟悉 Python 基础语法，能够独立完成文件读取、JSON 处理、函数封装和项目结构组织。
+2. 熟悉 FastAPI 基础，了解 GET/POST、Pydantic、Swagger、文件上传和接口调试。
+3. 了解大模型 API 调用，能够使用 OpenAI-compatible API、通义千问或 DeepSeek 等模型完成对话调用。
+4. 了解 LangChain 基础模块，包括 PromptTemplate、ChatPromptTemplate、MessagesPlaceholder、Tool、Retriever、VectorStore 和 RAG Chain。
+5. 了解 RAG 基本流程，包括文档加载、文本切块、Embedding、向量库检索、Prompt 拼接和大模型生成。
+6. 了解 BM25、BGE、FAISS、Chroma、Reranker 等检索增强相关技术。
+7. 有 Dify、Coze、LangChain 项目经验者优先。
+8. 了解 Git、Linux、Docker、Postman 或 Swagger 调试者优先。
+
+加分项：
+1. 做过本地知识库问答、岗位 JD 分析 Agent、RAG 应用或智能问答助手项目。
+2. 能解释 Agent 和普通 Chatbot 的区别，能说明 Tool Calling、Function Calling 和 ReAct 的基本思想。
+3. 能说明 BM25 和 BGE 的区别，理解混合检索和 Reranker 的作用。
+4. 能独立排查 API Key、Base URL、Embedding 模型、Chroma 持久化和路径问题。
