@@ -8,6 +8,7 @@ from schemas import (ChatRequest, ChatResponse, RagResponse, RagRequest,
                      KeywordResponse, KeywordRequest,UploadResponse,
                      GapAnalysisResponse,GapAnalysisRequest)
 from tools.gap_analysis_tool import analyze_skill_gap_func
+from tools.keyword_tool import extract_keywords_func
 
 from tools.keyword_tool import extract_keywords
 from fastapi import FastAPI, Request
@@ -101,6 +102,28 @@ async def upload_jd(file: UploadFile = File(...)):  #file是必填参数
 
 @app.post('/jd/gap_analysis',response_model = GapAnalysisResponse )
 async def gap_skills(req:GapAnalysisRequest):
-    result = analyze_skill_gap_func.invoke({'text_jd':req.text_jd,'user_skills':req.user_skills})
-    return result
+    # 1. 先从 JD 文本中提取技能关键词
+    kw_result = extract_keywords_func(req.text_jd)
+    kw_data = json.loads(kw_result)
+    jd_skills = kw_data.get("keywords", [])
+
+    if not jd_skills:
+        return GapAnalysisResponse(
+            matched_skills=[],
+            missing_skills=req.user_skills,
+            suggestion="未能从 JD 文本中提取到技术关键词，请检查输入内容。"
+        )
+
+    # 2. 直接调用函数（非 .invoke），传入正确的参数
+    result = analyze_skill_gap_func(
+        jd_skills=jd_skills,
+        user_skills=req.user_skills
+    )
+
+    # 3. 字段映射：summary -> suggestion
+    return GapAnalysisResponse(
+        matched_skills=result.get("matched_skills", []),
+        missing_skills=result.get("missing_skills", []),
+        suggestion=result.get("summary", "")
+    )
 

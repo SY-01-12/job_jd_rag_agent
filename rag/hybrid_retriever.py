@@ -34,7 +34,7 @@ def merge_and_deduplicate_docs(
 
 
     '''
-    遍历 BM25 \ Vector 结果：
+    遍历 BM25 / Vector 结果：
     给文档生成唯一身份证 key
     按排名给它算一个分数
     如果是新文档：先登记一下
